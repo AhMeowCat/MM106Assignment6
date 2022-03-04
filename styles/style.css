@@ -12,7 +12,7 @@
 @font-face {
   font-family: 'arial_rounded_mt_boldregular';
   src: url(../fonts/arlrdbd-webfont.woff2) format('woff2'),
-       url(../fonts/arlrdbd-webfont.woff) format('woff');
+    url(../fonts/arlrdbd-webfont.woff) format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,6 +23,10 @@
   display: table;
 }
 
+.music {
+  display: none;
+}
+
 body {
   width: 100%;
   margin: 0 auto;
@@ -30,15 +34,14 @@ body {
 
 /* This works! From https://css-tricks.com/snippets/css/transparent-background-images/ */
 
-.background {
+div[class^="background"] {
   position: relative;
+  overflow: hidden;
 }
 
-.background::after {
+div[class^="background"]::after {
   content: "";
-  background: #6b98b9 url("../images/photos/springblossom.jpg") no-repeat center center;
   background-size: cover;
-  opacity: 0.15;
   top: 0;
   left: 0;
   bottom: 0;
@@ -47,42 +50,26 @@ body {
   z-index: -1;
 }
 
-.background2 {
-  position: relative;
-  width: 100%;
+.background1::after {
+  background: #6b98b9 url("../images/photos/springblossom.jpg") no-repeat center center;
+  opacity: 0.15;
 }
 
 .background2::after {
-  content: "";
   background: url(../images/drawings/path.png) no-repeat center center, url(../images/drawings/river.png) no-repeat center center;
-  background-size: cover;
   opacity: 0.7;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-  transform: rotate(-12deg) scale(1.1);
 }
 
-/* --Not used/Doesn't work-- From https://coder-coder.com/background-image-opacity/ 
-
-.background {
-  background: url(../images/drawings/river.png) no-repeat center center, url("../images/photos/springblossom.jpg") no-repeat center center;
-  background-size: cover;
+.background3::after {
+  background: #6b98b9 url("../images/photos/heavenly.jpg") no-repeat center center;
+  opacity: 0.4;
 }
 
-.background::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-color: rgba(255, 255, 255, 0.5);
+.background4::after {
+  background: url(../images/drawings/river.png) no-repeat center center;
+  opacity: 0.4;
+  transform: scaleX(-1);
 }
-*/
 
 .topbar {
   background-color: rgba(255, 255, 255, 0.6);
@@ -124,7 +111,7 @@ nav ul {
 }
 
 nav li {
-  width: 25%;
+  width: 20%;
   padding: 0 2px;
   margin: 18px 5px;
 }
@@ -137,9 +124,26 @@ nav li a {
   margin-bottom: 15px;
 }
 
+.topbar li:hover,
+#search:hover,
+.destinations:hover {
+  transform: scale(1.2);
+}
+
+.active li:hover {
+  transform: none;
+}
+
+/* I don't want the active nav to transform on hover but it doesn't work? */
+
+.active {
+  color: #753557;
+  text-shadow: 2px 2px rgb(187, 176, 176);
+}
+
 #search {
   width: 2em;
-  margin: 8px 15px;
+  margin: 10px 15px;
 }
 
 .search {
@@ -174,7 +178,6 @@ nav li a {
   overflow: hidden;
   color: rgb(68, 63, 63);
   font-family: 'arial_rounded_mt_boldregular';
-  /* font-family: 'Kanit', sans-serif; */
   font-size: 1.5em;
   font-weight: 800;
   text-align: right;
@@ -185,7 +188,7 @@ nav li a {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-style: italic;
-  font-size: 0.7em;
+  font-size: 0.8em;
 }
 
 #flower {
@@ -198,7 +201,86 @@ nav li a {
   height: 490px;
 }
 
-.destinations {
+.content a {
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy, Arial;
+  font-size: 2.2em;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+.right.content {
+  height: 330px;
+  text-align: right;
+  padding: 30px 30px;
+}
+
+.left.content {
+  height: 330px;
+  text-align: left;
+  padding: 85px 30px;
+}
+
+.right.content a {
+  width: 25%;
+  color: #33a579;
+  /* color: #753557; */
+  text-align: right;
+}
+
+.left.content a {
+  width: 25%;
+  color: #a555a1;
+  /* color: #D6AFEA; */
+  text-align: left;
+}
+
+.right p {
+  width: 25%;
+  color: #527383;
+  font-family: 'arial_rounded_mt_boldregular';
+  font-size: 1.3em;
+  text-align: right;
+  padding-top: 10px;
+  margin-left: auto;
+}
+
+.right span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.left p {
+  width: 28%;
+  color: #FFF8BE;
+  font-family: 'arial_rounded_mt_boldregular';
+  font-size: 1.3em;
+  text-align: left;
+  padding-top: 10px;
+}
+
+.butterfly1 {
+  position: relative;
+  left: 15%;
+  top: 35%;
+}
+
+.butterfly1 img {
+  width: 8em;
+}
+
+.butterfly2 {
+  position: relative;
+  left: 65%;
+  top: -35%;
+}
+
+.butterfly2 img {
+  width: 8em;
+}
+
+.content .destinations {
   width: 8em;
   position: absolute;
   text-align: center;
@@ -206,21 +288,18 @@ nav li a {
   background-size: cover; */
 }
 
-.first img, .third img {
+.first img,
+.third img {
   transform: scale(1.1);
   padding-bottom: 5px;
 }
 
-.destinations img {
-  width: 4em;
+.content .destinations img {
+  width: 2em;
   margin: 0 auto;
 }
 
-.topbar li:hover, .destinations:hover {
-  transform: scale(1.2);
-}
-
-.destinations h3 {
+.content .destinations h3 {
   font-family: Copperplate, "Copperplate Gothic Light", fantasy, Arial;
   color: #009ED9;
   background-color: rgba(255, 255, 255, 0.6);
@@ -262,14 +341,31 @@ nav li a {
 }
 
 .bottombar p {
-  width: 70%;
+  width: 80%;
   color: rgb(68, 63, 63);
   font-family: 'arial_rounded_mt_boldregular';
   /* font-family: 'Kanit', sans-serif; */
-  font-size: 1.4em;
+  font-size: 1.3em;
   letter-spacing: 2px;
   margin-top: 30px;
   margin-left: 10px;
+  padding-left: 15px;
+  transition: transform 500ms ease-in-out 100ms;
+}
+
+
+.trigger:hover #boat {
+  transform: translate(150px, 0);
+}
+
+.trigger:hover #boat2 {
+  transform: translate(400px, 0);
+}
+
+.trigger:hover .bottombar p {
+  transform: translate(100px, 0);
+  color: #bb484a;
+  font-style: oblique;
 }
 
 #CatBunny {
@@ -277,9 +373,21 @@ nav li a {
   margin-left: 20%;
 }
 
+#CatBunny2 {
+  width: 10em;
+  margin-right: 20%;
+}
+
 #boat {
   width: 6em;
   margin-right: 35%;
+  transition: transform 500ms ease-in-out 100ms;
+}
+
+#boat2 {
+  width: 6em;
+  margin-left: 45%;
+  transition: transform 3000ms ease-in-out 100ms;
 }
 
 footer {
@@ -307,396 +415,4 @@ p {
   font-size: 0.9em;
   font-family: 'Roboto', sans-serif;
   color: white;
-}
-
-/* butterfly animation below */
-
-.contenedor{
-  position:relative;
-  width:600px;
-  height:500px;
-  border-radius:100%;
-  /* background:#070707; */
-  margin: 0 auto;
-  
-}
-.butter{
-  position:absolute;
-  width:35px;
-  height:50px;
-  border-radius:100%;
-  background: rgb(150, 61, 116);
-  margin:155px 400px;
-   transform:rotate(-12deg);
-  -moz-transform:rotate(-12deg);
-  -webkit-transform:rotate(-12deg);
-  animation:sube .9s alternate infinite;
-  -moz-animation:sube .9s alternate infinite;
-  -webkit-animation:sube .9s alternate infinite;
-}
-
-.ala{  
-  position:absolute;
-  width:45px;
-  height:60px;
-  border-radius:100%;
-  background:#E50B6D;
-   margin:9px 12px;
- transform:rotate(53deg);
-  -moz-transform:rotate(53deg);
-  -webkit-transform:rotate(53deg);
-   animation:sube7 .9s alternate infinite;
-  -moz-animation:sube7 .9s alternate infinite;
-  -webkit-animation:sube7 .9s alternate infinite;
-}
-
-.ala::before{
-  content:"";
-  position:absolute;
-  width:40px;
-  height:60px;
-  border-radius:100%;
-  background:#E50B6D;
-  opacity:.7;
-  margin:5px 12px;
- transform:rotate(80deg);
-  -moz-transform:rotate(80deg);
-  -webkit-transform:rotate(80deg);
-}
-
-.butter3{
-  position:absolute;
-  width:40px;
-  height:9px;
-  border-radius:100%;
-  background:#009ED9;
-   transform:rotate(50deg);
-  -moz-transform:rotate(50deg);
-  -webkit-transform:rotate(50deg);
-  margin:57px -3px;
-}
-
-.butter3::before{
-  content:"";
-  display:block;
-  width:12px;
-  height:12px;
-  border-radius:100%;
-  background: white;
-  margin:0px -9px
-}
-
-.butter3::after{
-  content:"";
-  display:block;
-  width:21px;
-  height:12px;
-  border-radius:100%;
-  border-top:3px solid white;
-  margin:-9px -21px
-}
-
-.butter7{
-  position:absolute;
-  width:35px;
-  height:50px;
-  border-radius:100%;
-  background:#05abe0;
-  margin:300px 132px;
-   transform:rotate(12deg);
-  -moz-transform:rotate(12deg);
-  -webkit-transform:rotate(12deg);
-  animation:sube3 .9s alternate infinite;
-  -moz-animation:sube3 .9s alternate infinite;
-  -webkit-animation:sube3 .9s alternate infinite;
-}
-
-.ala3{
-  position:absolute;
-  width:45px;
-  height:60px;
-  border-radius:100%;
-  background:#1AC2ED;
-  margin:12px -7px;
- transform:rotate(-21deg);
-  -moz-transform:rotate(-21deg);
-  -webkit-transform:rotate(-21deg);
-  animation:sube9 .9s alternate infinite;
-  -moz-animation:sube9 .9s alternate infinite;
-  -webkit-animation:sube9 .9s alternate infinite;
-}
-
-.ala3::before{
-  content:"";
-  position:absolute;
-  width:40px;
-  height:60px;
-  border-radius:100%;
-  background:#882a88;
-  opacity:.7;
-  margin:12px -7px;
- transform:rotate(-90deg);
-  -moz-transform:rotate(-90deg);
-  -webkit-transform:rotate(-90deg);
-}
-
-.butter5{
-  position:absolute;
-  width:40px;
-  height:9px;
-  border-radius:100%;
-  background:#d99f00;
-   transform:rotate(-50deg);
-  -moz-transform:rotate(-50deg);
-  -webkit-transform:rotate(-50deg);
-  margin:65px 14px
-}
-
-.butter5::before{
-  content:"";
-  display:block;
-  width:12px;
-  height:12px;
-  border-radius:100%;
-  background: white;
-  margin:0px 33px
-}
-
-.butter5::after{
-  content:"";
-  display:block;
-  width:21px;
-  height:12px;
-  border-radius:100%;
-  border-top:3px solid white;
-  margin:-12px 40px
-}
-
-/*
-.flor{
-  position:absolute;
-  width:3px;
-  height:450px;
-  background:rgba(255, 255, 255, 0);
-  opacity:.5;
-  margin:142px 295px;
-}
-
-.flor1{
-  position:absolute;
-  width:70px;
-  height:70px;
-  border-radius:3px 121px 12px 121px;
- background:#05abe0;
-   transform:rotate(90deg);
-  -moz-transform:rotate(90deg);
-  -webkit-transform:rotate(90deg);
-}
-.flor1::before{
-  content:"";
-  position:absolute;
-  width:70px;
-  height:70px;
-  border-radius:3px 121px 12px 121px;
- background:#07C7F7;
-   transform:rotate(90deg);
-  -moz-transform:rotate(90deg);
-  -webkit-transform:rotate(90deg);
-  margin:0px 50px
-}
-.flor2{
-  position:absolute;
-  width:70px;
-  height:70px;
-  border-radius:3px 121px 12px 121px;
-  background:#E50B6D;
-   transform:rotate(-90deg);
-  -moz-transform:rotate(-90deg);
-  -webkit-transform:rotate(-90deg);
-  margin:192px -70px
-}
-.flor2::before{
-  content:"";
-  position:absolute;
-  width:70px;
-  height:70px;
-  border-radius:3px 121px 12px 121px;
- background:#EF0B6A;
-   transform:rotate(90deg);
-  -moz-transform:rotate(90deg);
-  -webkit-transform:rotate(90deg);
-  margin:0px 50px
-}
-*/
-.circ1, .circ2, .circ3, .circ4, .circ5, .circ6{
-  border-radius:100%;
-  background: rgba(255,255,255,1);
-background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 23%, rgba(115,115,115,1) 40%, rgba(115,115,115,1) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(23%, rgba(255,255,255,1)), color-stop(40%, rgba(115,115,115,1)), color-stop(100%, rgba(115,115,115,1)));
-background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 23%, rgba(115,115,115,1) 40%, rgba(115,115,115,1) 100%);
-background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 23%, rgba(115,115,115,1) 40%, rgba(115,115,115,1) 100%);
-background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 23%, rgba(115,115,115,1) 40%, rgba(115,115,115,1) 100%);
-background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 23%, rgba(115,115,115,1) 40%, rgba(115,115,115,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#737373', GradientType=1 );
-  box-shadow:0px 0  12px  #FFf;
--moz-box-shadow:0px 0  21px  #FFf;
--ms-box-shadow:0px 0  21px  #FFf;
--o-box-shadow:0px 0  21px  #FFf;
--webkit-box-shadow:0px 0  12px  #FFf; 
-}
-.circ1{
-  position:absolute;
-width:12px;
-  height:12px;
-     margin:212px 90px;
-     animation: enciende alternate infinite .9s;
-  -moz-animation: enciende alternate infinite .9s;
-  -webkit-animation: enciende alternate infinite .9s;
-
-}
-.circ2{
-  position:absolute;
-width:9px;
-  height:9px;
-    margin:231px 80px;
-     animation: enciende alternate infinite 1s;
-  -moz-animation: enciende alternate infinite 1s;
-  -webkit-animation: enciende alternate infinite 1s;
-
-}
-.circ3{
-  position:absolute;
-width:6px;
-  height:6px;
-   margin:247px 67px;
-     animation: enciende alternate infinite 2s;
-  -moz-animation: enciende alternate infinite 2s;
-  -webkit-animation: enciende alternate infinite 2s;
-
-}
-.circ4{
-  position:absolute;
-width:12px;
-  height:12px;
-   margin:70px 370px;
-     animation: enciende alternate infinite .9s;
-  -moz-animation: enciende alternate infinite .9s;
-  -webkit-animation: enciende alternate infinite .9s;
-
-}
-.circ5{
-  position:absolute;
-width:9px;
-  height:9px;
-   margin:90px 385px;
-     animation: enciende alternate infinite 1s;
-  -moz-animation: enciende alternate infinite 1s;
-  -webkit-animation: enciende alternate infinite 1s;
-
-}
-.circ6{
-  position:absolute;
-width:6px;
-  height:6px;
-   margin:112px 387px;
-    animation: enciende alternate infinite 2s;
-  -moz-animation: enciende alternate infinite 2s;
-  -webkit-animation: enciende alternate infinite 2s;
-
-}
-
-.circulos{
-  position:absolute;
-  margin:-630px 700px;
-}
-@keyframes sube{
-  0%{margin: 152px 370px;}
-  100%{margin: 162px 370px;}
-}
-@-moz-keyframes sube{
-  0%{margin: 152px 370px;}
-  100%{margin: 162px 370px;}
-}
-@-webkit-keyframes sube{
-  0%{margin: 152px 370px;}
-  100%{margin: 162px 370px;}
-}
-@keyframes sube3{
-  0%{margin: 303px 162px;}
-  100%{margin: 291px 162px;}
-}
-@-moz-keyframes sube3{
-  0%{margin: 303px 162px;}
-  100%{margin: 291px 162px;}
-}
-@-webkit-keyframes sube3{
-  0%{margin: 303px 162px;}
-  100%{margin: 291px 162px;}
-}
-@keyframes sube7{
-  0%{ transform:rotate(53deg);
-  -moz-transform:rotate(53deg);
-  -webkit-transform:rotate(53deg);}
-
-100%{transform:rotate(73deg);
-  -moz-transform:rotate(73deg);
-  -webkit-transform:rotate(73deg);}
-}
-@-moz-keyframes sube7{
-  0%{ transform:rotate(53deg);
-  -moz-transform:rotate(53deg);
-  -webkit-transform:rotate(53deg);}
-
-100%{transform:rotate(73deg);
-  -moz-transform:rotate(73deg);
-  -webkit-transform:rotate(73deg);}
-}
-@-webkit-keyframes sube7{
-  0%{ transform:rotate(53deg);
-  -moz-transform:rotate(53deg);
-  -webkit-transform:rotate(53deg);}
-
-100%{transform:rotate(73deg);
-  -moz-transform:rotate(73deg);
-  -webkit-transform:rotate(73deg);}
-}
-
-@keyframes sube9{
-  0%{ transform:rotate(-21deg);
-  -moz-transform:rotate(-21deg);
-  -webkit-transform:rotate(-21deg);}
-
-100%{transform:rotate(-33deg);
-  -moz-transform:rotate(-33deg);
-  -webkit-transform:rotate(-33deg);}
-}
-@-webkit-keyframes sube9{
-  0%{ transform:rotate(-21deg);
-  -moz-transform:rotate(-21deg);
-  -webkit-transform:rotate(-21deg);}
-
-100%{transform:rotate(-33deg);
-  -moz-transform:rotate(-33deg);
-  -webkit-transform:rotate(-33deg);}
-}
-@-moz-keyframes sube9{
-  0%{ transform:rotate(-21deg);
-  -moz-transform:rotate(-21deg);
-  -webkit-transform:rotate(-21deg);}
-
-100%{transform:rotate(-33deg);
-  -moz-transform:rotate(-33deg);
-  -webkit-transform:rotate(-33deg);}
-}
-@keyframes enciende{
-  0%{opacity:0;}
-  100%{opacity:1;}
-}
-@-moz-keyframes enciende{
-  0%{opacity:0;}
-  100%{opacity:1;}
-}
-@-webkit-keyframes enciende{
-  0%{opacity:0;}
-  100%{opacity:1;}
 }

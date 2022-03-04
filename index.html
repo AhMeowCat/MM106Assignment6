@@ -17,8 +17,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&family=Roboto&family=Special+Elite&display=swap"
     rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -26,7 +24,14 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-  <div class="background">
+  <div class="music">
+    <audio controls autoplay>
+      <source src="audio/birdsong.ogg" type="audio/ogg">
+      <source src="audio/birdsong.mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+  <div class="background1">
     <div class="background2">
       <div class="topbar">
         <header>
@@ -35,7 +40,7 @@
         </header>
         <nav>
           <ul>
-            <li><a href="#">thoughts</a></li>
+            <li><a href="thoughts.html">thoughts</a></li>
             <li><a href="#">stories</a></li>
             <li><a href="#">mentor</a></li>
             <li><a href="#">connect</a></li>
@@ -48,17 +53,26 @@
         <div class="title">
           <img id="sun" src="images/drawings/sun.png" alt="sun">
           <h1>journey with me</h1>
-          <p>"Just living is not enough," <br>
+          <p>“Just living is not enough,” <br>
             said the butterfly, <br>
-            "one must have sunshine, <br>
-            freedom and a little flower" <br>
+            “one must have sunshine, <br>
+            freedom and a little flower”<br>
             <span>Hans Christian Anderson</span></p>
           <img id="flower" src="images/drawings/flower.png" alt="a little flower">
         </div>
 
         <div class="content">
+
+          <div class="butterfly1">
+            <img src="images/gif/butterfly1.gif" alt="flying butterflies">
+          </div>
+
+          <div class="butterfly2">
+            <img src="images/gif/butterfly1.gif" alt="flying butterflies">
+          </div>
+
           <div class="first destinations">
-            <a href="#"><img src="images/icons/home-thoughts.png"></a>
+            <a href="thoughts.html"><img src="images/icons/home-thoughts.png"></a>
             <h3 class="label">thoughts</h3>
           </div>
           <div class="second destinations">
@@ -74,44 +88,25 @@
             <h3 class="label">connect</h3>
           </div>
 
-          <!-- butterfly animation below -->
-
-          <div class="contenedor">
-            <div class="flor">
-              <div class="flor1"></div>
-              <div class="flor2"></div>
-            </div>
-            <div class="butter"><span class="ala"></span><span class="butter3"></span></div>
-            <div class="butter7"><span class="ala3"></span><span class="butter5"></span></div>
-
-          </div>
-          <div class="circulos">
-            <span class="circ1"></span>
-            <span class="circ2"></span>
-            <span class="circ3"></span>
-            <span class="circ4"></span>
-            <span class="circ5"></span>
-            <span class="circ6"></span>
-          </div>
-
-        </div>
       </main>
 
-      <div class="bottombar">
-        <img id="CatBunny" src="images/drawings/bunny-color.png" alt="Cat+Bunny">
-        <p>Love is the wind that sails us onto our journey.</p>
-        <img id="boat" src="images/icons/all-boat.png" alt="boat">
+      <div class="trigger">
+        <div class="bottombar">
+          <img id="CatBunny" src="images/drawings/bunny-color.png" alt="Cat+Bunny">
+          <p>Love is the wind that sails us onto our journey.</p>
+          <img id="boat" src="images/icons/all-boat.png" alt="boat">
+        </div>
       </div>
+
+      <footer>
+        <ul>
+          <li><a href="#">privacy policy</a></li>
+          <li><a href="#">terms & conditions</a></li>
+          <p>Copyright &#169 2022 Catherine Chan & Chi Fang. All rights reserved.</p>
+        </ul>
+      </footer>
+
     </div>
-
-    <footer>
-      <ul>
-        <li><a href="#">privacy policy</a></li>
-        <li><a href="#">terms & conditions</a></li>
-        <p>Copyright &#169 2022 Catherine Chan & Chi Fang. All rights reserved.</p>
-      </ul>
-    </footer>
-
   </div>
 
 
