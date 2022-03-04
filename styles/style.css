@@ -27,6 +27,20 @@
   display: none;
 }
 
+#playmusic {
+  width: 12%;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy, Arial;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #175377;
+  letter-spacing: 3px;
+  padding: 1px;
+  margin-top: 13%;
+  margin-left: 73%;
+  box-shadow: 4px 4px rgb(187, 176, 176);
+  border-radius: 20px;
+}
+
 body {
   width: 100%;
   margin: 0 auto;
