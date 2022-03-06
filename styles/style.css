@@ -274,24 +274,25 @@ nav li a {
   padding-top: 10px;
 }
 
+.butterfly1 img {
+  width: 6em;
+}
+
+.butterfly2 img {
+  width: 7em;
+  transform: scaleX(-1);
+}
+
 .butterfly1 {
   position: relative;
   left: 15%;
-  top: 35%;
-}
-
-.butterfly1 img {
-  width: 8em;
+  top: 32%;
 }
 
 .butterfly2 {
   position: relative;
   left: 65%;
   top: -35%;
-}
-
-.butterfly2 img {
-  width: 8em;
 }
 
 .content .destinations {
